@@ -95,14 +95,17 @@
   - type: Alerts
   - type: ProtectedFromStepTriggers
   - type: Targeting # Shitmed Change
-  - type: TypingIndicator # Goob
+  # <Goobstation>
+  - type: FlashVulnerable
+  - type: TypingIndicator
     proto: robot
-  - type: Speech # Goob
+  - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
+  # </Goobstation>
 
 - type: entity
-  name: "дрон"
+  name: drone
   id: Drone
   parent: [PlayerSiliconBase, BaseBorgTransponder]
   components:
@@ -189,6 +192,7 @@
     - Stun
     - KnockedDown
     - SlowedDown
+    - Flashed # Goobstation - counter to shitter drones
   - type: SlowOnDamage
     speedModifierThresholds:
       30: 0.7
@@ -210,7 +214,7 @@
     sprite:
       sprite: _Imp/Drone/drone.rsi
       state: shell
-    name: "дрон"
+    name: drone
   - type: MovementIgnoreGravity
   - type: Fixtures
     fixtures:

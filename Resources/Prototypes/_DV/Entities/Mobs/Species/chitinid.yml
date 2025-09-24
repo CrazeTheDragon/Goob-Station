@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  name: "Уріст МакАнт"
+  name: Urist McAnt
   parent: BaseMobSpeciesOrganic
   id: BaseMobChitinid
   abstract: true
@@ -135,6 +135,10 @@
     understands:
     - TauCetiBasic
     - Moffic
+  - type: ItemCougher
+    item: Chitzite
+    action: ActionChitzite
+    coughPopup: chitzite-cough
 
 - type: entity
   parent: BaseSpeciesDummy
