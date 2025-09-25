@@ -13,6 +13,7 @@ using Content.Pirate.Shared.Traits.Vampirism.Events;
 using Content.Pirate.Server.Traits.Vampirism.Components;
 //using Content.Shared.Cocoon;
 using Content.Server.Atmos.Components;
+using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
@@ -164,7 +165,7 @@ namespace Content.Pirate.Server.Traits.Vampirism.Systems
                 return false;
 
             // No blood left, yikes.
-            if (_bloodstreamSystem.GetBloodLevelPercentage(victim, bloodstream) == 0.0f)
+            if (_bloodstreamSystem.GetBloodLevelPercentage((victim, bloodstream)) == 0.0f)
                 return false;
 
             // Does bloodsucker have a stomach?

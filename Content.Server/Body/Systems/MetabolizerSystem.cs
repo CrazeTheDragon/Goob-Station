@@ -64,6 +64,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Bed.Sleep; // Shitmed Change
 using Content.Shared.Body.Organ;
+using Content.Shared.Body.Prototypes; // # Pirate: added to support ProtoId<MetabolizerTypePrototype>
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -293,6 +294,15 @@ namespace Content.Server.Body.Systems
 
             _solutionContainerSystem.UpdateChemicals(soln.Value);
         }
+
+        // # Pirate VVV
+        public void SetMetabolizerTypes(Entity<MetabolizerComponent?> ent, HashSet<ProtoId<MetabolizerTypePrototype>> types)
+        {
+            if (!Resolve(ent, ref ent.Comp))
+                return;
+            ent.Comp.MetabolizerTypes = types;
+        }
+        // # Pirate ^^^
     }
 
     // TODO REFACTOR THIS

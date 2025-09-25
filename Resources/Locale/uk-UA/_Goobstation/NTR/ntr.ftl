@@ -1,6 +1,6 @@
 # base
 store-currency-nt-loyalty-point = Бал лояльності NT
-store-preset-name-ntr = Магазин "Дипломат керівника
+store-preset-name-ntr = Магазин «Дипломат керівника»
 
 ntr-scan-fail = ПОМИЛКА: Предмет відхилено протоколом сканування.
 ntr-scan-success = Успішно зараховано {$amount} балів лояльності
@@ -115,7 +115,7 @@ ntr-executive-tier-5-name = Рідкісні плати машин
 ntr-console-insert-deny = Неправильно!
 ntr-console-insert-accept = Правильно!
 
-ntr-console-insert-deny-stamps = Недійсні марки.
+ntr-console-insert-deny-stamps = Недійсні печатки.
 
 ntr-bounty-console-reward-label = Нагорода: [color=limegreen]{$reward} балів лояльності[/color]
 ntr-bounty-console-manifest-entry = { $amount ->

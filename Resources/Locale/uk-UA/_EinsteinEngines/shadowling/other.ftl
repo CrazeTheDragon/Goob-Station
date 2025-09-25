@@ -3,7 +3,7 @@ shadowling-on-try-equip-clothes = Це для вас марно...
 reagent-name-shadowling-toxin = токсин тіньовика
 reagent-desc-shadowling-toxin = Таємнича хімічна речовина, яка лікує будь-якого тіньовика та його тралів, але осліплює всіх інших
 
-alerts-shadowling-light-name = Ідентифікатор світла
+alerts-shadowling-light-name = Індикатор світла
 alerts-shadowling-light-desc = Це ваш ідентифікатор світла. Якщо він досягне 0, ви почнете отримувати шкоду. Надавайте перевагу перебуванню в тіні.
 
 chat-manager-shadowling-channel-name = Тіньовий розум

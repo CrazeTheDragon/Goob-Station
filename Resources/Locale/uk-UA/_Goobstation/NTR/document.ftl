@@ -2,31 +2,31 @@
 # service
 ntr-document-service-starting-text1 = [color=#009100]█▄ █ ▀█▀    [head=3]Документ NanoTrasen[/head]
     █ ▀█     █        Кому: Відділ обслуговування
-                           Від: ЦентКомм
+                           Від: ЦентКом
                            Видано: {$date}
     ──────────────────────────────────────────[/color]
 ntr-document-security-starting-text1 = [head=3]Документ NanoTrasen[/head]                               [color=#990909]█▄ █ ▀█▀
     Кому: Відділ безпеки                                       █ ▀█     █
-    Від: ЦентКомм
+    Від: ЦентКом
     Видано: {$date}
     ──────────────────────────────────────────[/color]
 ntr-document-cargo-starting-text1 = [head=3]  NanoTrasen[/head]        [color=#d48311]█▄ █ ▀█▀ [/color][bold]      Кому: Вантажний відділ[/bold][head=3]
-       Документ[/head]           [color=#d48311]█ ▀█     █       [/color] [bold]   Від: ЦентКомм[/bold]
+       Документ[/head]           [color=#d48311]█ ▀█     █       [/color] [bold]   Від: ЦентКом[/bold]
     ──────────────────────────────────────────
                                         Видано: {$date}
 ntr-document-medical-starting-text1 = [color=#118fd4]░             █▄ █ ▀█▀    [head=3]Документ NanoTrasen[/head]                 ░
     █             █ ▀█     █        Кому: Медичний відділ                         █
-    ░                                    Від: ЦентКомм                                     ░
+    ░                                    Від: ЦентКом                                     ░
                                          Видано: {$date}
     ──────────────────────────────────────────[/color]
 ntr-document-engineering-starting-text1 = [color=#a15000]█▄ █ ▀█▀    [head=3]Документ NanoTrasen[/head]
     █ ▀█     █        Кому: Інженерний відділ
-                           Від: ЦентКомм
+                           Від: ЦентКом
                            Видано: {$date}
     ──────────────────────────────────────────[/color]
 ntr-document-science-starting-text1 = [color=#94196f]░             █▄ █ ▀█▀    [head=3]Документ NanoTrasen[/head]                 ░
     █             █ ▀█     █        Кому: Науковий відділ                         █
-    ░                                    Від: ЦентКомм                                     ░
+    ░                                    Від: ЦентКом                                     ░
                                          Видано: {$date}
     ──────────────────────────────────────────[/color]
 ntr-document-service-document-text = {$start}

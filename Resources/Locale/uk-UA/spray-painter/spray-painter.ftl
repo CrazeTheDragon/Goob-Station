@@ -4,7 +4,7 @@ spray-painter-ammo-after-interact-full = Розпилювач фарби пов�
 spray-painter-ammo-after-interact-refilled = Ви заправляєте розпилювач фарби.
 
 spray-painter-interact-no-charges = Недостатньо фарби.
-spray-painter-interact-nothing-to-remove = Немає що видаляти!
+spray-painter-interact-nothing-to-remove = Нема чого видаляти!
 
 spray-painter-on-examined-painted-message = Здається, його щойно пофарбували.
 spray-painter-style-not-available = Неможливо застосувати вибраний стиль до цього об'єкта.
@@ -19,7 +19,7 @@ spray-painter-window-title = Розпилювач фарби
 
 spray-painter-selected-style = Вибраний стиль:
 
-spray-painter-selected-decals = Обрана наклейка:
+spray-painter-selected-decals = Вибрана наклейка:
 spray-painter-use-custom-color = Використовувати власний колір
 spray-painter-use-snap-to-tile = Прив'язати до плитки
 
@@ -28,7 +28,7 @@ spray-painter-angle-rotation-90-sub = -90°
 spray-painter-angle-rotation-reset = 0°
 spray-painter-angle-rotation-90-add = +90°
 
-spray-painter-selected-color = Обраний колір:
+spray-painter-selected-color = Вибраний колір:
 spray-painter-color-red = червоний
 spray-painter-color-yellow = жовтий
 spray-painter-color-brown = коричневий

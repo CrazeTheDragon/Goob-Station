@@ -19,8 +19,8 @@ marking-VoxScarEyeLeft = Шрам на оці (лівий)
 marking-VoxScarTopSurgeryShort-vox_scar_top_surgery_short = Торакотомічний шрам
 marking-VoxScarTopSurgeryShort = Торакотомічний шрам
 
-marking-VoxScarTopSurgeryLong-vox_scar_top_surgery_long = Шрам "розкладачка
-marking-VoxScarTopSurgeryLong = Шрам "розкладачка
+marking-VoxScarTopSurgeryLong-vox_scar_top_surgery_long = Шрам "розкладачка"
+marking-VoxScarTopSurgeryLong = Шрам "розкладачка"
 
 marking-VoxScarChest-vox_scar_chest = Шрам на грудях
 marking-VoxScarChest = Шрам на грудях

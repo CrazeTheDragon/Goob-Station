@@ -1,6 +1,6 @@
 shadowling-enthrall-non-humanoid = Це не те, що ви шукаєте...
 shadowling-enthrall-mindshield = Вони можуть кинути виклик вашим силам!
-shadowling-enthrall-already-thrall = Вони вже ваші тралли!
+shadowling-enthrall-already-thrall = Вони вже ваші трали!
 shadowling-enthrall-shadowling = Ви не можете поневолити свій власний рід!
 shadowling-enthrall-psionic-insulated = Їхня сутність палає силою, що перевищує ваш контроль!
 shadowling-enthrall-dead = Вони потрібні вам живими!
@@ -19,8 +19,8 @@ shadowling-destroy-engines-used = Шаттл вже був затриманий 
 shadowling-destroy-engines-arrived = Ваші сили не дозволяють вам знищити двигуни!
 shadowling-destroy-engines-not-called = Шаттл ще не викликали.
 
-shadowling-collective-mind-success = Ви відчуваєте себе сильнішими, ніж раніше! Вам потрібно {$thralls} траллів, щоб досягти своєї справжньої форми!
-shadowling-collective-mind-failure = Ви нічого не відчуваєте. Вам потрібно {$thralls} траллів, щоб досягти своєї справжньої форми.
+shadowling-collective-mind-success = Ви відчуваєте себе сильнішими, ніж раніше! Вам потрібно {$thralls} тралів, щоб досягти своєї справжньої форми!
+shadowling-collective-mind-failure = Ви нічого не відчуваєте. Вам потрібно {$thralls} тралів, щоб досягти своєї справжньої форми.
 shadowling-collective-mind-ascend = Ви здобули всі сили... Тепер, до вознесіння!
 
 shadowling-sonic-screech-complete = Повітря розривається від вашого крику.
