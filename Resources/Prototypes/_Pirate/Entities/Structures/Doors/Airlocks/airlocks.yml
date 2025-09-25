@@ -5,8 +5,9 @@
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Doors/Airlocks/Standard/interdyne.rsi
+  - type: Wires
     layoutId: AirlockInterdyne
-    
+
 - type: entity
   parent: AirlockGlass
   id: AirlockInterdyneGlass
@@ -14,4 +15,5 @@
   components:
   - type: Sprite
     sprite: _Pirate/Structures/Doors/Airlocks/Glass/interdyne.rsi
+  - type: Wires
     layoutId: AirlockInterdyne
