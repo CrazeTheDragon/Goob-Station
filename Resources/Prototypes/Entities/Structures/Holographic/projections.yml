@@ -99,7 +99,8 @@
     - type: PointLight
       enabled: true
       radius: 3
-      color: cyan // Pirate bluesec
+      color: cyan # Pirate bluesec
+
     - type: Climbable
     - type: Clickable
 
