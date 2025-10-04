@@ -13,14 +13,12 @@
       - AsteroidAltRock
     chance: .90
     rarePrototypes:
-      - AsteroidAltRockMining
       - Barricade
       - MountainRockMining
       - MountainRock
       - RandomStalagmiteOrCrystal
       - RandomWallRockSpawner
       - RandomBasaltRockSpawner
-      - AsteroidRockOreCrab
       - RandomWoodenStructure
     rareChance: 0.15
 
