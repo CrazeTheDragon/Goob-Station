@@ -15135,151 +15135,177 @@ Entries:
   changes:
     - type: Add
       message: >-
-        People who have no soul and die will now be brought into goose hell!
-        (This is still a round removal)
+        Людей без душі, які помирають, тепер відправляє у гусине пекло!
+        (Це все ще виведення з раунду)
     - type: Tweak
       message: >-
-        Hell geese can now only make hell portals 1 tile away from them, down
-        from 2
+        Пекельні гуси тепер можуть відкривати портали пекла лише на 1 плитку
+        від себе (раніше було 2).
     - type: Tweak
       message: >-
-        Hell geese are now immune to heat and radiation and resistant to shock
-        and bloodloss but weak to holy
+        Пекельні гуси тепер мають імунітет до тепла та радіації, стійкі до
+        шоку й крововтрати, але вразливі до святості.
     - type: Tweak
-      message: Hell geese are now a more common midround
+      message: Пекельні гуси тепер частіше з’являються посеред раунду
     - type: Fix
-      message: Being able to escape from the hell map using a portal
+      message: Виправлено можливість утечі з пекельної мапи через портал
   id: 1760
   time: '2025-10-02T13:47:49.0000000+00:00'
 - author: LuciferEOS
   changes:
     - type: Fix
       message: >-
-        You can no longer copy nor fax corporate documents (the NTRs task
-        documents).
+        Більше не можна копіювати чи факсувати корпоративні документи
+        (документи із завданнями NTR).
   id: 1761
   time: '2025-10-03T01:21:56.0000000+00:00'
 - author: deltanedas
   changes:
     - type: Fix
-      message: Fixed xenos never spawning.
+      message: "Виправлено: ксеноси ніколи не з’являлися."
   id: 1762
   time: '2025-10-03T01:23:40.0000000+00:00'
 - author: ivan4ik
   changes:
     - type: Add
       message: >-
-        midround antag called Walker, is omniantag who can steal power from
-        syndicate, changeling, heretic, wizard and more. Antag start weak but
-        can grow very strong if crew not stop him.
+        Додано антагоніста серед раунду Walker — «омніантага», який може
+        красти сили у Синдикату, мінливців (changeling), єретиків, чаклунів
+        тощо. Починає слабким, але може стати дуже сильним, якщо екіпаж
+        його не зупинить.
   id: 1763
   time: '2025-10-03T01:50:40.0000000+00:00'
 - author: BombasterDS2
   changes:
     - type: Tweak
-      message: All implanters now have generic names to prevent metagaming.
+      message: Усі імплантери тепер мають загальні назви, щоб запобігти метагеймінгу.
     - type: Tweak
       message: >-
-        All implanters now auto-label themself with containing implant's name.
-        Label disappear after implanting and appears against after implant
-        drawing.
+        Усі імплантери тепер автоматично маркуються назвою імпланта всередині.
+        Після імплантації мітка зникає й з’являється знову після витягування
+        імпланта.
   id: 1764
   time: '2025-10-03T13:34:58.0000000+00:00'
 - author: LuciferEOS
   changes:
     - type: Fix
-      message: Devil contracts now are worth 0 points for the NTR.
+      message: Контракти з дияволом тепер дають 0 балів для NTR.
   id: 1765
   time: '2025-10-04T15:39:58.0000000+00:00'
 - author: Armok
   changes:
     - type: Fix
-      message: Shadowling glass shard weakness
+      message: "Виправлено: слабкість шедовлінга до скляних уламків"
     - type: Fix
-      message: Shadowling unable to punch lights
+      message: "Виправлено: шедовлінг не міг вибивати світильники"
     - type: Fix
-      message: Shadowling ability descriptions
+      message: Виправлено описи здібностей шедовлінга
     - type: Fix
-      message: Shadowling mobs and ascended mobs missing abilities
+      message: "Виправлено: у шедовлінгів та вознесених істот бракувало здібностей"
     - type: Fix
-      message: Shadowling ascendant abilities having absurdly long cooldowns
+      message: "Виправлено: здібності вознесеного шедовлінга мали абсурдно довгі перезарядки"
     - type: Fix
       message: >-
-        Shadowling pain crit caused by lights no longer prevents them from
-        casting veil
+        Виправлено: крит від болю від світла більше не заважає шедовлінгам
+        застосовувати «Вуаль»
     - type: Fix
-      message: Species Name Shadow bug
+      message: Виправлено баг із назвою виду Shadow
     - type: Fix
-      message: Ascendant no longer complete pushover for what it is supposed to be
+      message: >-
+        Виправлено: Вознесений більше не є повним слабаком для ролі, якою він
+        має бути
     - type: Fix
-      message: Ascendant bloodloss actually stops so they dont stutter like a geek
+      message: >-
+        Виправлено: у Вознесеного кровотеча справді зупиняється, тож він не
+        заїкається
     - type: Fix
-      message: Ascendant heals over time (alot)
+      message: "Виправлено: Вознесений відновлюється з часом (значно)"
     - type: Tweak
-      message: 'Shadowling Glare stun time 7s > 5s '
+      message: 'Погляд шедовлінга: час оглушення 7с > 5с'
     - type: Tweak
-      message: Shadowling Enthrall time 5s >4s
+      message: 'Поневолення шедовлінга: час 5с > 4с'
     - type: Tweak
-      message: Shadowling Glare mute 2s > 5s
+      message: 'Погляд шедовлінга: німота 2с > 5с'
     - type: Tweak
       message: >-
-        Shadowling Glareslow 2s > 7s (this and mute were not working before,
-        they should work now)
+        Погляд шедовлінга: сповільнення 2с > 7с (раніше це й німота не
+        працювали, тепер мають працювати)
     - type: Tweak
-      message: Shadowling Veil range 6 > 9
+      message: 'Вуаль шедовлінга: радіус 6 > 9'
     - type: Tweak
-      message: Shadowling Veil cooldown 60 > 30
+      message: 'Вуаль шедовлінга: перезарядка 60 > 30'
     - type: Tweak
-      message: Shadowling and shadow punch now does heat damage + slightly more damage
+      message: >-
+        Удар шедовлінга та тіньовий удар тепер завдають теплової шкоди й трохи
+        більшої загальної шкоди
   id: 1766
   time: '2025-10-05T07:52:08.0000000+00:00'
 - author: Luminal
   changes:
     - type: Fix
-      message: Fixed shadowlings taking insane damage in light due to a bug
+      message: Виправлено баг, через який шедовлінги отримували надмірну шкоду від світла
     - type: Fix
       message: >-
-        Fixed shadowling's light immunity global sound playing multiple times
-        and causing your ears to bleed
+        Виправлено багаторазове відтворення глобального звуку «імунітету до
+        світла» шедовлінга, що завдавало болю вухам
     - type: Tweak
       message: >-
-        Lesser Shadowlings have a worse version of Glare. They are more useful
-        now.
-    - type: Tweak
-      message: 'Shadowling APC ability got its doafter timer reduced greatly '
+        Молодші шедовлінги мають слабшу версію «Погляду». Тепер вони
+        корисніші.
     - type: Tweak
       message: >-
-        Shadowling Veil improved to support more light types. You can take out
-        flares now, but not torches.
+        Значно зменшено час підготовки («doafter») у здібності шедовлінга на APC
     - type: Tweak
       message: >-
-        Thralls can now be identified by examining them, unless they are wearing
-        a protective mask
+        Поліпшено «Вуаль» шедовлінга: підтримує більше типів світла. Тепер
+        можна гасити фальшфеєри, але не смолоскипи.
     - type: Tweak
       message: >-
-        Epileptic people will no longer get a cardiac arrest during a Shadowling
-        enthrallment
+        Поневолених тепер можна впізнавати оглядом, якщо вони не носять
+        захисної маски
     - type: Tweak
-      message: Updated red alert SOP for shadowlings. Read it again.
+      message: >-
+        Люди з епілепсією більше не отримують зупинку серця під час
+        поневолення шедовлінгом
+    - type: Tweak
+      message: Оновлено СОП червоної тривоги щодо шедовлінгів. Перечитайте.
   id: 1767
   time: '2025-10-05T07:56:28.0000000+00:00'
 - author: JohnJohn, yonsim
   changes:
     - type: Tweak
       message: >-
-        Updated facehugger sprite to be a modified version of rmc'd parasite
-        (lamar and the toy remain unchanged)
+        Оновлено спрайт фейсхагера до зміненої версії паразита з RMC
+        (Ламар і іграшка без змін)
     - type: Tweak
-      message: Updated larva to be the sprite from CMSS13
+      message: Оновлено спрайт личинки на версію з CMSS13
   id: 1768
   time: '2025-10-05T17:39:16.0000000+00:00'
 - author: DeusMaldPr
   changes:
     - type: Tweak
       message: >-
-        Nutriment and vitamins now heal slight amounts of damage off, aswell as
-        healing bloodloss.
+        Поживні речовини та вітаміни тепер трохи лікують шкоду, а також
+        зменшують крововтрату.
     - type: Tweak
-      message: Protein heals more brute damage and more bloodloss.
+      message: Білок лікує більше грубої шкоди та крововтрати.
   id: 1769
   time: '2025-10-05T23:25:25.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Fix
+      message: Виправлено однакові назви імплантерів-перекладачів.
+  id: 1770
+  time: '2025-10-07T15:09:59.0000000+00:00'
+- author: XWasHere
+  changes:
+    - type: Fix
+      message: Мікрохвильовки більше не затримують предмети всередині.
+  id: 1771
+  time: '2025-10-07T15:33:34.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Fix
+      message: Лутжук (Lootbug) тепер коректно поглинає предмети
+  id: 1772
+  time: '2025-10-07T15:35:17.0000000+00:00'
