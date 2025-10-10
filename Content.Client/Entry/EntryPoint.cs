@@ -271,7 +271,9 @@ namespace Content.Client.Entry
             _configManager.SetCVar("interface.resolutionAutoScaleLowerCutoffY", 240);
             _configManager.SetCVar("interface.resolutionAutoScaleMinimum", 0.5f);
 
+#if FULL_RELEASE
            _configManager.SetCVar(CVars.NetPredictLagBias, 0.2f); // Pirate
+#endif
         }
 
         public override void Shutdown()
