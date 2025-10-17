@@ -1,3 +1,66 @@
+# Miscellaneous
+
+# Command
+- type: roleLoadout
+  id: JobAdministrativeAssistant
+  groups:
+  - GroupTankHarness
+  - AdminAssistantHeadset
+  - AdminAssistantJumpsuit
+  - AdminAssistantShoes
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  - Animals
+  - GroupSpeciesBreathTool
+
+- type: loadoutGroup
+  id: CommandSelfDefense
+  name: loadout-group-command-self-defense
+  minLimit: 0
+  loadouts:
+  - CSDFlash
+  - CSDWeaponDisabler
+  - CSDTelescopicBaton
+
+# Civilian
+
+# Cargo
+
+# Engineering
+- type: loadoutGroup
+  id: TechnicalAssistantEquipment
+  name: loadout-group-technical-assistant-equipment
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - LoadoutEngineerBoxInflatable
+  - LoadoutEngineerMaterialWoodPlank10
+  - LoadoutEngineerSheetGlass10
+  - LoadoutEngineerSheetPlasteel10
+  - LoadoutEngineerSheetPlastic10
+  - LoadoutEngineerSheetSteel10
+
+- type: loadoutGroup
+  id: StationEngineerEquipment
+  name: loadout-group-station-engineer-equipment
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - LoadoutEngineerBoxInflatable
+  - LoadoutEngineerMedkitOxygenFilled
+  - LoadoutEngineerPowerDrill
+  - LoadoutEngineerWelderIndustrial
+  - LoadoutEngineerMaterialWoodPlank
+  - LoadoutEngineerSheetGlass
+  - LoadoutEngineerSheetPGlass
+  - LoadoutEngineerSheetUGlass
+  - LoadoutEngineerSheetPlasteel
+  - LoadoutEngineerSheetPlastic
+  - LoadoutEngineerSheetSteel
+
+# Science
 - type: roleLoadout
   id: JobForensicMantis
   groups:
@@ -15,16 +78,37 @@
   - Trinkets
   - GroupSpeciesBreathTool
 
-- type: roleLoadout
-  id: JobAdministrativeAssistant
-  groups:
-  - GroupTankHarness
-  - AdminAssistantHeadset
-  - AdminAssistantJumpsuit
-  - AdminAssistantShoes
-  - CommonBackpack
-  - Glasses
-  - Survival
-  - Trinkets
-  - Animals
-  - GroupSpeciesBreathTool
+# Security
+- type: loadoutGroup
+  id: SecurityCadetOuterClothing
+  name: loadout-group-cadet-outerclothing
+  loadouts:
+  - ArmorCadet
+
+- type: loadoutGroup
+  id: SecurityWeapon
+  name: loadout-group-security-weapon
+  loadouts:
+  - LoadoutSecurityWeaponMk58
+  - LoadoutSecurityRevolverInspector
+  - LoadoutSecurityPistolN1984
+  - LoadoutSecurityPistolUniversalNonLethal
+  - LoadoutSecurityPistolUniversal
+
+- type: loadoutGroup
+  id: SecuritySecondaryWeapon
+  name: loadout-group-secondary-weapon
+  maxLimit: 1
+  minLimit: 0
+  loadouts:
+  - LoadoutSecurityEnergyGunMini
+  - LoadoutSecurityEnergyGun
+  - LoadoutSecurityDisablerSMG
+  - LoadoutSecurityEnergyGunPistol
+  - LoadoutSecurityGunLaserCarbineAutomatic
+
+# Medical
+
+# Wildcards
+
+# Other

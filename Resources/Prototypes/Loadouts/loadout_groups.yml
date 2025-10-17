@@ -395,17 +395,6 @@
   loadouts:
   - HoPWintercoat
 
-# COMMAND - PIRATE START VVVV
-- type: loadoutGroup
-  id: CommandSelfDefense
-  name: loadout-group-command-self-defense
-  minLimit: 0
-  loadouts:
-  - CSDFlash
-  - CSDWeaponDisabler
-  - CSDTelescopicBaton
-# COMMAND - PIRATE END ^^^^
-
 # Civilian
 - type: loadoutGroup
   id: PassengerJumpsuit
@@ -1118,39 +1107,6 @@
   - LoadoutSpeciesPlasma # Goobstation
   - EmergencySilicon
 
-# ENGINEERING - PIRATE START VVVV
-- type: loadoutGroup
-  id: TechnicalAssistantEquipment
-  name: loadout-group-technical-assistant-equipment
-  minLimit: 0
-  maxLimit: 3
-  loadouts:
-  - LoadoutEngineerBoxInflatable
-  - LoadoutEngineerMaterialWoodPlank10
-  - LoadoutEngineerSheetGlass10
-  - LoadoutEngineerSheetPlasteel10
-  - LoadoutEngineerSheetPlastic10
-  - LoadoutEngineerSheetSteel10
-
-- type: loadoutGroup
-  id: StationEngineerEquipment
-  name: loadout-group-station-engineer-equipment
-  minLimit: 0
-  maxLimit: 3
-  loadouts:
-  - LoadoutEngineerBoxInflatable
-  - LoadoutEngineerMedkitOxygenFilled
-  - LoadoutEngineerPowerDrill
-  - LoadoutEngineerWelderIndustrial
-  - LoadoutEngineerMaterialWoodPlank
-  - LoadoutEngineerSheetGlass
-  - LoadoutEngineerSheetPGlass
-  - LoadoutEngineerSheetUGlass
-  - LoadoutEngineerSheetPlasteel
-  - LoadoutEngineerSheetPlastic
-  - LoadoutEngineerSheetSteel
-# ENGINEERING - PIRATE END ^^^^
-
 # Science
 - type: loadoutGroup
   id: ResearchDirectorHead
@@ -1459,36 +1415,6 @@
   minLimit: 0
   loadouts:
   - SecStar
-
-# SECURITY - PIRATE START
-- type: loadoutGroup
-  id: SecurityCadetOuterClothing
-  name: loadout-group-cadet-outerclothing
-  loadouts:
-  - ArmorCadet
-
-- type: loadoutGroup
-  id: SecurityWeapon
-  name: loadout-group-security-weapon
-  loadouts:
-  - LoadoutSecurityWeaponMk58
-  - LoadoutSecurityRevolverInspector
-  - LoadoutSecurityPistolN1984
-  - LoadoutSecurityPistolUniversalNonLethal
-  - LoadoutSecurityPistolUniversal
-
-- type: loadoutGroup
-  id: SecuritySecondaryWeapon
-  name: loadout-group-secondary-weapon
-  maxLimit: 1
-  minLimit: 0
-  loadouts:
-  - LoadoutSecurityEnergyGunMini
-  - LoadoutSecurityEnergyGun
-  - LoadoutSecurityDisablerSMG
-  - LoadoutSecurityEnergyGunPistol
-  - LoadoutSecurityGunLaserCarbineAutomatic
-# SECURITY - PIRATE END
 
 # Medical
 - type: loadoutGroup
