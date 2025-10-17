@@ -477,6 +477,7 @@
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
+  - TechnicalAssistantEquipment # Pirate
   - SurvivalExtended
   - Trinkets
   - Animals
@@ -496,6 +497,7 @@
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - StationEngineerID
+  - StationEngineerEquipment # Pirate
   - SurvivalExtended
   - Trinkets
   - Animals
@@ -514,6 +516,7 @@
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
+  - StationEngineerEquipment # Pirate
   - SurvivalExtended
   - Trinkets
   - Animals

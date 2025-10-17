@@ -1,4 +1,5 @@
-# Command
+## Command - Командування
+# Адміністративний асистент
 - type: loadoutGroup
   id: AdminAssistantJumpsuit
   name: loadout-group-admin-assistant-jumpsuit
@@ -22,7 +23,63 @@
   - BlackShoes
   - WinterBoots
 
-# Sience
+# Спільне
+- type: loadoutGroup
+  id: CommandSelfDefense
+  name: loadout-group-command-self-defense
+  minLimit: 0
+  loadouts:
+  - CSDFlash
+  - CSDWeaponDisabler
+  - CSDTelescopicBaton
+
+
+
+## Civilian - Цівільні
+
+
+
+## Cargo - Карго
+
+
+
+## Engineering - Інженерія
+# Спільне
+- type: loadoutGroup
+  id: TechnicalAssistantEquipment
+  name: loadout-group-technical-assistant-equipment
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - LoadoutEngineerBoxInflatable
+  - LoadoutEngineerMaterialWoodPlank10
+  - LoadoutEngineerSheetGlass10
+  - LoadoutEngineerSheetPlasteel10
+  - LoadoutEngineerSheetPlastic10
+  - LoadoutEngineerSheetSteel10
+
+- type: loadoutGroup
+  id: StationEngineerEquipment
+  name: loadout-group-station-engineer-equipment
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - LoadoutEngineerBoxInflatable
+  - LoadoutEngineerMedkitOxygenFilled
+  - LoadoutEngineerPowerDrill
+  - LoadoutEngineerWelderIndustrial
+  - LoadoutEngineerMaterialWoodPlank
+  - LoadoutEngineerSheetGlass
+  - LoadoutEngineerSheetPGlass
+  - LoadoutEngineerSheetUGlass
+  - LoadoutEngineerSheetPlasteel
+  - LoadoutEngineerSheetPlastic
+  - LoadoutEngineerSheetSteel
+
+
+
+## Sience - Наука
+# Псіо-екстрасенс
 - type: loadoutGroup
   id: MantisHead
   name: loadout-group-mantis-head
@@ -77,3 +134,48 @@
   name: loadout-group-mantis-Belt
   loadouts:
   - MantisBelt
+
+
+
+## Security - Охорона
+# Кадет
+- type: loadoutGroup
+  id: SecurityCadetOuterClothing
+  name: loadout-group-cadet-outerclothing
+  loadouts:
+  - ArmorCadet
+
+# Зброя
+- type: loadoutGroup
+  id: SecurityWeapon
+  name: loadout-group-security-weapon
+  loadouts:
+  - LoadoutSecurityWeaponMk58
+  - LoadoutSecurityRevolverInspector
+  - LoadoutSecurityPistolN1984
+  - LoadoutSecurityPistolUniversalNonLethal
+  - LoadoutSecurityPistolUniversal
+
+- type: loadoutGroup
+  id: SecuritySecondaryWeapon
+  name: loadout-group-secondary-weapon
+  maxLimit: 1
+  minLimit: 0
+  loadouts:
+  - LoadoutSecurityEnergyGunMini
+  - LoadoutSecurityEnergyGun
+  - LoadoutSecurityDisablerSMG
+  - LoadoutSecurityEnergyGunPistol
+  - LoadoutSecurityGunLaserCarbineAutomatic
+
+
+
+## Medical - Мед
+
+
+
+## Wildcards - Різне
+
+
+
+## Other - Інше
