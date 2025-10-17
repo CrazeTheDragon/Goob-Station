@@ -5,8 +5,5 @@ loadout-group-secondary-weapon = Другорядна зброя офіцера 
 
 loadout-group-command-self-defense = Оснащення самозахисту
 
-loadout-group-station-engineer-gloves = Рукавички інженера
-loadout-group-atmospheric-technician-gloves = Рукавички атмосферного техніка
-
 loadout-group-station-engineer-equipment = Оснащення інженера
 loadout-group-technical-assistant-equipment = Оснащення технічного асистента

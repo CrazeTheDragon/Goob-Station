@@ -1120,21 +1120,6 @@
 
 # ENGINEERING - PIRATE START VVVV
 - type: loadoutGroup
-  id: StationEngineerGloves
-  name: loadout-group-station-engineer-gloves
-  minLimit: 0
-  loadouts:
-  - InsulatedGloves
-  - FingerlessInsulatedGloves
-
-- type: loadoutGroup
-  id: AtmosphericTechnicianGloves
-  name: loadout-group-atmospheric-technician-gloves
-  minLimit: 0
-  loadouts:
-  - AtmosInsulatedGloves
-
-- type: loadoutGroup
   id: TechnicalAssistantEquipment
   name: loadout-group-technical-assistant-equipment
   minLimit: 0
@@ -1155,8 +1140,6 @@
   loadouts:
   - LoadoutEngineerBoxInflatable
   - LoadoutEngineerMedkitOxygenFilled
-  - LoadoutEngineerRCD
-  - LoadoutEngineerRCDAmmo
   - LoadoutEngineerPowerDrill
   - LoadoutEngineerWelderIndustrial
   - LoadoutEngineerMaterialWoodPlank

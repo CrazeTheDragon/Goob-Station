@@ -1,22 +1,3 @@
-# Рукавички
-- type: loadout
-  id: InsulatedGloves
-  equipment:
-    gloves: ClothingHandsGlovesColorYellow
-
-- type: loadout
-  id: AtmosInsulatedGloves
-  equipment:
-    gloves: ClothingHandsGlovesAtmosInsulated
-
-- type: loadout
-  id: FingerlessInsulatedGloves
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
-  equipment:
-    gloves: ClothingHandsGlovesFingerlessInsulated
-
 ## Інженер
 # Інструменти
 - type: loadout
@@ -24,18 +5,6 @@
   storage:
     back:
     - MedkitOxygenFilled
-
-- type: loadout
-  id: LoadoutEngineerRCD
-  storage:
-    back:
-    - RCD
-
-- type: loadout
-  id: LoadoutEngineerRCDAmmo
-  storage:
-    back:
-    - RCDAmmo
 
 - type: loadout
   id: LoadoutEngineerPowerDrill
