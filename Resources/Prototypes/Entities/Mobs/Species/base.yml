@@ -269,13 +269,14 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.Underwear" ]
-    - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
+    - map: [ "enum.HumanoidVisualLayers.Underwear" ] # Goob 3370
+    - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # Goob 3370
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: ["enum.HumanoidVisualLayers.Face"] #Goob 120 - why did we have face on dummy but not basespecies
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
@@ -501,6 +502,7 @@
   - type: OfferItem # Pirate - port EE item offesrs
   - type: Sprinter # Goobstation
   - type: SprintingAffectedByScale # Goobstation: port EE height/width sliders
+  - type: MindControllable # Goobstation
 
 - type: entity
   save: false
@@ -604,8 +606,8 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.Underwear" ]
-    - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
+    - map: [ "enum.HumanoidVisualLayers.Underwear" ] # Goob 3370
+    - map: [ "enum.HumanoidVisualLayers.Undershirt" ] # Goob 3370
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LFoot"]
     - map: ["enum.HumanoidVisualLayers.RFoot"]
@@ -616,7 +618,7 @@
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
-    - map: [ "enum.HumanoidVisualLayers.Face" ]
+    - map: [ "enum.HumanoidVisualLayers.Face" ] # Goob 3370
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
