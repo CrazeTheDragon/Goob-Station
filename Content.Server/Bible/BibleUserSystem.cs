@@ -53,14 +53,14 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
-using Content.Shared.Stunnable; //Pirate
+using Content.Shared.Stunnable; // Pirate
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Content.Shared.Eye;
-using Robust.Shared.Containers; //Pirate
-using Robust.Shared.Timing; //Pirate
-using Content.Goobstation.Shared.Religion; //Pirate
+using Robust.Shared.Containers; // Pirate
+using Robust.Shared.Timing; // Pirate
+using Content.Goobstation.Shared.Religion; // Pirate
 
 namespace Content.Server.Bible
 {
@@ -78,7 +78,7 @@ namespace Content.Server.Bible
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly SharedEyeSystem _eye = default!;
 
-        [Dependency] private readonly SharedStunSystem _stun = default!; //Pirate
+        [Dependency] private readonly SharedStunSystem _stun = default!; // Pirate
 
         public override void Initialize()
         {
@@ -306,7 +306,7 @@ namespace Content.Server.Bible
             if (TryComp<EyeComponent>(ent, out var eye))
                 _eye.SetVisibilityMask(ent, eye.VisibilityMask | (int)VisibilityFlags.EldritchInfluenceSpent);
         }
-        //Pirate
+        // Pirate VVV
         private void OnInsertedContainer(EntityUid uid, BibleComponent component, EntGotInsertedIntoContainerMessage args)
         {
             //If an unholy creature picks up the bible, knock them down
@@ -320,6 +320,6 @@ namespace Content.Server.Bible
                 });
             }
         }
-        //Pirate end
+        // Pirate ^^^
     }
 }

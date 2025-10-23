@@ -17,8 +17,8 @@ using Content.Shared.Drunk;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
 using Content.Shared.HealthExaminable;
-using Content.Shared.Nutrition.EntitySystems; //Pirate
-using Content.Shared.Nutrition.Components; //Pirate
+using Content.Shared.Nutrition.EntitySystems; // Pirate
+using Content.Shared.Nutrition.Components; // Pirate
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
@@ -46,8 +46,8 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedDrunkSystem _drunkSystem = default!;
     [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!; //Pirate
-    [Dependency] private readonly ThirstSystem _thirst = default!; //Pirate
+    [Dependency] private readonly HungerSystem _hunger = default!; // Pirate
+    [Dependency] private readonly ThirstSystem _thirst = default!; // Pirate
 
     public override void Initialize()
     {
@@ -88,8 +88,8 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             //{
             //    TryModifyBloodLevel((uid, bloodstream), bloodstream.BloodRefreshAmount);
             //}
-            if (!_mobStateSystem.IsDead(uid)) //Pirate
-                TryDoNaturalRegeneration((uid, bloodstream), bloodSolution); //Pirate
+            if (!_mobStateSystem.IsDead(uid)) // Pirate
+                TryDoNaturalRegeneration((uid, bloodstream), bloodSolution); // Pirate
 
                 // Removes blood from the bloodstream based on bleed amount (bleed rate)
                 // as well as stop their bleeding to a certain extent.
@@ -597,7 +597,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         return bloodData;
     }
 
-    //Pirate from now until end of the file
+    // Pirate VVV
     /// <summary>
     ///     Tries to apply natural blood regeneration/loss to the entity. Returns true if succesful.
     /// </summary>
@@ -636,4 +636,5 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             return false;
         return SolutionContainer.RemoveReagent(ent.Comp.BloodSolution.Value, ent.Comp.BloodReagent, -ev.Amount);
     }
+    // Pirate ^^^
 }
