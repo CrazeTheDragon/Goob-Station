@@ -50,8 +50,8 @@
 - type: entity
   id: Window
   parent: BaseStructure
-  name: "вікно"
-  description: "Чисто."
+  name: window
+  description: Don't smudge up the glass down there.
   placement:
     mode: SnapgridCenter
     snap:
@@ -143,7 +143,7 @@
 - type: entity
   parent: Window
   id: TintedWindow
-  name: "тоноване вікно"
+  name: tinted window
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -172,8 +172,8 @@
 - type: entity
   id: WindowDirectional
   parent: BaseStructure
-  name: "спрямоване вікно"
-  description: "Чисто."
+  name: directional window
+  description: Don't smudge up the glass down there.
   placement:
     mode: SnapgridCenter
     snap:
@@ -272,8 +272,8 @@
 - type: entity
   id: WindowFrostedDirectional
   parent: WindowDirectional
-  name: "спрямоване матове вікно"
-  description: "Чисто."
+  name: directional frosted window
+  description: Don't smudge up the glass down there.
   placement:
     mode: SnapgridCenter
     snap:
