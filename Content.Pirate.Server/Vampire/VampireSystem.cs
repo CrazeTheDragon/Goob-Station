@@ -46,6 +46,10 @@ using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Charges.Components;
+using Content.Shared.NPC.Systems;
+using Content.Shared.NPC.Prototypes;
+using Content.Server.Antag;
+using Content.Pirate.Server.GameTicking.Rules;
 
 namespace Content.Pirate.Server.Vampire;
 
@@ -84,6 +88,9 @@ public sealed partial class VampireSystem : EntitySystem
     [Dependency] private readonly MetabolizerSystem _metabolism = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedVampireSystem _vampire = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly VampireRuleSystem _vampireRules = default!;
 
     public override void Initialize()
     {
@@ -303,6 +310,10 @@ public sealed partial class VampireSystem : EntitySystem
         UpdateAbilities(uid, component , "ActionVampireBatform", "PolymorphBat" , bloodEssence >= FixedPoint2.New(200) && component.CurrentMutation == VampireMutationsType.Bestia);
 
         UpdateAbilities(uid, component , "ActionVampireMouseform", "PolymorphMouse" , bloodEssence >= FixedPoint2.New(300) && component.CurrentMutation == VampireMutationsType.Bestia);
+
+        // Sire
+        UpdateAbilities(uid, component , "ActionVampireSire", "Sire" , bloodEssence >= FixedPoint2.New(200) && component.CurrentMutation == VampireMutationsType.Sire);
+        UpdateAbilities(uid, component , "ActionVampireDarkGift", "DarkGift" , bloodEssence >= FixedPoint2.New(200) && component.CurrentMutation == VampireMutationsType.Sire);
     }
 
     private void UpdateAbilities(EntityUid uid, VampireComponent component, string actionId, string? powerId, bool addAction)
@@ -380,14 +391,25 @@ public sealed partial class VampireSystem : EntitySystem
     private void ChangeMutation(EntityUid uid, VampireMutationsType newMutation, VampireComponent component)
     {
         var vampire = new Entity<VampireComponent>(uid, component);
-        if (SubtractBloodEssence(vampire, FixedPoint2.New(50)))
+        var cost = GetMutationCost(newMutation);
+        if (!SubtractBloodEssence(vampire, cost))
+            return;
+
+        component.CurrentMutation = newMutation;
+        UpdateUi(uid, component);
+        var ev = new VampireBloodChangedEvent();
+        RaiseLocalEvent(uid, ev);
+        TryOpenUi(uid, component.Owner, component);
+    }
+
+    private static FixedPoint2 GetMutationCost(VampireMutationsType mutation)
+    {
+        // Centralized mutation cost table (easy to extend; avoids magic numbers inline)
+        return mutation switch
         {
-            component.CurrentMutation = newMutation;
-            UpdateUi(uid, component);
-            var ev = new VampireBloodChangedEvent();
-            RaiseLocalEvent(uid, ev);
-            TryOpenUi(uid, component.Owner, component);
-        }
+            VampireMutationsType.Sire => FixedPoint2.New(500),
+            _ => FixedPoint2.New(50)
+        };
     }
 
     private void GetState(EntityUid uid, VampireComponent component, ref AfterAutoHandleStateEvent args) => args.State = new VampireMutationComponentState

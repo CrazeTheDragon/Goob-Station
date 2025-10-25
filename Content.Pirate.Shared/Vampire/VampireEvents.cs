@@ -19,6 +19,9 @@ public sealed partial class VampireCloakOfDarknessEvent : VampireSelfPowerEvent 
 public sealed partial class VampireGlareEvent : VampireTargetedPowerEvent { }
 public sealed partial class VampireHypnotiseEvent : VampireTargetedPowerEvent { }
 
+public sealed partial class VampireSireEvent : VampireTargetedPowerEvent { }
+public sealed partial class VampireDarkGiftEvent : VampireTargetedPowerEvent { }
+
 
 public abstract partial class VampireSelfPowerEvent : InstantActionEvent
 {
@@ -59,5 +62,17 @@ public sealed partial class VampireHypnotiseDoAfterEvent : DoAfterEvent
     [DataField]
     public TimeSpan? Duration = TimeSpan.Zero;
 
+    public override DoAfterEvent Clone() => this;
+}
+
+[Serializable, NetSerializable]
+public sealed partial class VampireSireDoAfterEvent : DoAfterEvent
+{
+    public override DoAfterEvent Clone() => this;
+}
+
+[Serializable, NetSerializable]
+public sealed partial class VampireDarkGiftDoAfterEvent : DoAfterEvent
+{
     public override DoAfterEvent Clone() => this;
 }

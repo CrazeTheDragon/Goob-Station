@@ -38,6 +38,12 @@ using Robust.Shared.Utility;
 using System.Collections.Frozen;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Body.Organ;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Damage;
+
+using Robust.Server.GameObjects;
+using Robust.Shared.Player;
+using Content.Pirate.Server.GameTicking.Rules;
 
 namespace Content.Pirate.Server.Vampire;
 
@@ -62,9 +68,16 @@ public sealed partial class VampireSystem
         SubscribeLocalEvent<VampireComponent, VampireUnholyStrengthEvent>(OnVampireUnholyStrength);
         SubscribeLocalEvent<VampireComponent, VampireSupernaturalStrengthEvent>(OnVampireSupernaturalStrength);
         SubscribeLocalEvent<VampireComponent, VampireCloakOfDarknessEvent>(OnVampireCloakOfDarkness);
+        // Sire
+        SubscribeLocalEvent<VampireComponent, VampireSireEvent>(OnVampireSire);
+        SubscribeLocalEvent<VampireComponent, VampireDarkGiftEvent>(OnVampireDarkGift);
 
         //Hypnotise
         SubscribeLocalEvent<VampireComponent, VampireHypnotiseDoAfterEvent>(HypnotiseDoAfter);
+
+        // Sire/Dark Gift DoAfters
+        SubscribeLocalEvent<VampireComponent, VampireSireDoAfterEvent>(VampireSireDoAfter);
+        SubscribeLocalEvent<VampireComponent, VampireDarkGiftDoAfterEvent>(VampireDarkGiftDoAfter);
 
         //Drink Blood
         //SubscribeLocalEvent<VampireComponent, BeforeInteractHandEvent>(OnInteractHandEvent);
@@ -488,6 +501,176 @@ public sealed partial class VampireSystem
     }
     #endregion
 
+    #region Sire
+    private void OnVampireSire(EntityUid entity, VampireComponent component, VampireSireEvent ev)
+    {
+        if (!TryGetPowerDefinition(ev.DefinitionName, out var def))
+            return;
+
+        var vampire = new Entity<VampireComponent>(entity, component);
+
+        if (!IsAbilityUsable(vampire, def))
+            return;
+
+        var target = ev.Target;
+        if (target == entity)
+            return;
+
+        if (!HasComp<HumanoidAppearanceComponent>(target))
+            return;
+
+        if (HasComp<Content.Shared.Mindshield.Components.MindShieldComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("vampire-sire-mindshield-block"), vampire, vampire, PopupType.MediumCaution);
+            return;
+        }
+
+        if (HasComp<VampireComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("vampire-sire-already"), vampire, vampire, PopupType.SmallCaution);
+            return;
+        }
+
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            entity,
+            def.DoAfterDelay ?? TimeSpan.FromSeconds(4),
+            new VampireSireDoAfterEvent(),
+            eventTarget: entity,
+            target: target,
+            used: target)
+        {
+            BreakOnMove = true,
+            BreakOnDamage = true,
+            MovementThreshold = 0.01f,
+            DistanceThreshold = 2.0f,
+            NeedHand = false,
+        };
+
+        if (_doAfter.TryStartDoAfter(doAfterArgs))
+        {
+            _popup.PopupEntity(Loc.GetString("vampire-sire-channel"), vampire, vampire, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString("vampire-sire-channel-target"), target, target, PopupType.LargeCaution);
+            ev.Handled = true;
+        }
+    }
+    #endregion
+
+    #region DarkGift
+    private void OnVampireDarkGift(EntityUid entity, VampireComponent component, VampireDarkGiftEvent ev)
+    {
+        if (!TryGetPowerDefinition(ev.DefinitionName, out var def))
+            return;
+
+        var vampire = new Entity<VampireComponent>(entity, component);
+        if (!IsAbilityUsable(vampire, def))
+            return;
+
+        var target = ev.Target;
+        if (target == entity)
+            return;
+
+        if (!HasComp<VampireComponent>(target))
+            return;
+
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            entity,
+            def.DoAfterDelay ?? TimeSpan.FromSeconds(3),
+            new VampireDarkGiftDoAfterEvent(),
+            eventTarget: entity,
+            target: target,
+            used: target)
+        {
+            BreakOnMove = true,
+            BreakOnDamage = true,
+            MovementThreshold = 0.01f,
+            DistanceThreshold = 2.0f,
+            NeedHand = false,
+        };
+
+        if (_doAfter.TryStartDoAfter(doAfterArgs))
+        {
+            _popup.PopupEntity(Loc.GetString("vampire-darkgift-channel", ("target", target)), vampire, vampire, PopupType.SmallCaution);
+            _popup.PopupEntity(Loc.GetString("vampire-darkgift-channel-target"), target, target, PopupType.LargeCaution);
+            ev.Handled = true;
+        }
+    }
+    #endregion
+
+    private void VampireSireDoAfter(Entity<VampireComponent> vampire, ref VampireSireDoAfterEvent args)
+    {
+        if (args.Cancelled || !args.Target.HasValue)
+            return;
+
+        var target = args.Target.Value;
+
+        if (HasComp<Content.Shared.Mindshield.Components.MindShieldComponent>(target) || HasComp<VampireComponent>(target))
+            return;
+
+        if (!TryComp<ActorComponent>(target, out var actor))
+            return;
+
+        // Prefer direct conversion to avoid any mid-round selection quirks
+        var ruleEnt = _antag.ForceGetGameRuleEnt<Content.Server._Pirate.GameTicking.Rules.Components.VampireRuleComponent>("Vampire");
+        if (TryComp<Content.Server._Pirate.GameTicking.Rules.Components.VampireRuleComponent>(ruleEnt, out var ruleComp))
+        {
+            _vampireRules.MakeVampire(target, ruleComp);
+        }
+        else
+        {
+            // Fallback to generic antag path
+            _antag.ForceMakeAntag<Content.Server._Pirate.GameTicking.Rules.Components.VampireRuleComponent>(actor.PlayerSession, "Vampire");
+        }
+
+        _popup.PopupEntity(Loc.GetString("vampire-sire-success", ("target", target)), vampire, vampire);
+        _popup.PopupEntity(Loc.GetString("vampire-sire-turned"), target, target, PopupType.LargeCaution);
+    }
+
+    private void VampireDarkGiftDoAfter(Entity<VampireComponent> vampire, ref VampireDarkGiftDoAfterEvent args)
+    {
+        if (args.Cancelled || !args.Target.HasValue)
+            return;
+
+        var target = args.Target.Value;
+        if (!HasComp<VampireComponent>(target))
+            return;
+
+        DamageSpecifier heal = new();
+        // Heal brute types (~35 total)
+        heal.DamageDict.Add("Blunt", -12);
+        heal.DamageDict.Add("Slash", -12);
+        heal.DamageDict.Add("Piercing", -11);
+        // Heal burn types (~35 total)
+        heal.DamageDict.Add("Heat", -12);
+        heal.DamageDict.Add("Cold", -12);
+        heal.DamageDict.Add("Shock", -6);
+        heal.DamageDict.Add("Caustic", -5);
+        // Toxin/air/genetic
+        heal.DamageDict.Add("Poison", -25);
+        heal.DamageDict.Add("Asphyxiation", -25);
+        heal.DamageDict.Add("Cellular", -10);
+
+        _damageableSystem.TryChangeDamage(target, heal, true, origin: vampire, targetPart: TargetBodyPart.All, ignoreBlockers: true, splitDamage: SplitDamageBehavior.SplitEnsureAll);
+        // Stop the bleeding too
+        _blood.TryModifyBleedAmount(target, -100);
+
+        if (TryComp<MobStateComponent>(target, out var mobStateComponent) && _mobState.IsDead(target, mobStateComponent))
+        {
+            if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold)
+                && TryComp<DamageableComponent>(target, out var damageableComponent))
+            {
+                if (damageableComponent.TotalDamage < threshold * 0.75)
+                {
+                    _mobState.ChangeMobState(target, MobState.Critical, mobStateComponent, vampire);
+                }
+            }
+        }
+
+        _popup.PopupEntity(Loc.GetString("vampire-darkgift-used-user", ("target", target)), vampire, vampire);
+        _popup.PopupEntity(Loc.GetString("vampire-darkgift-used-target"), target, target, PopupType.LargeCaution);
+    }
+
     #region Hypnotise
     private bool TryHypnotise(Entity<VampireComponent> vampire, EntityUid? target, TimeSpan? duration, TimeSpan? delay)
     {
@@ -499,6 +682,14 @@ public sealed partial class VampireSystem
 
         if (attempt.Cancelled)
             return false;
+
+        // Instant cast if no delay or zero delay requested
+        if (delay is null || delay.Value <= TimeSpan.Zero)
+        {
+            _statusEffects.TryAddStatusEffectDuration(target.Value, "StatusEffectForcedSleeping", duration ?? TimeSpan.FromSeconds(30));
+            _popup.PopupEntity(Loc.GetString("vampire-hypnotise-other", ("user", vampire.Owner), ("target", target.Value)), target.Value, PopupType.SmallCaution);
+            return true;
+        }
 
         var doAfterEventArgs = new DoAfterArgs(EntityManager, vampire, delay ?? TimeSpan.FromSeconds(5),
         new VampireHypnotiseDoAfterEvent() { Duration = duration },

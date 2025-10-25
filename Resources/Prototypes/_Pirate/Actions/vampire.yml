@@ -190,3 +190,47 @@
   - type: InstantAction
     event: !type:VampireCloakOfDarknessEvent
       definitionName: CloakOfDarkness
+
+- type: entity
+  id: ActionVampireSire
+  name: Sire
+  description: "Turn a mortal into a vampire. Fails on mindshielded targets. Activation Cost: 200 Essence."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: _Pirate/Interface/Actions/actions_vampire.rsi
+      state: sire
+    useDelay: 10
+    itemIconStyle: BigAction
+  - type: TargetAction
+    range: 25
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidAppearance
+    event: !type:VampireSireEvent
+      definitionName: Sire
+
+- type: entity
+  id: ActionVampireDarkGift
+  name: Dark Gift
+  description: "Heal or revive a turned vampire. Activation Cost: 100 Essence."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: _Pirate/Interface/Actions/actions_vampire.rsi
+      state: darkgift
+    useDelay: 0
+    itemIconStyle: BigAction
+  - type: TargetAction
+    range: 25
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - Vampire
+    event: !type:VampireDarkGiftEvent
+      definitionName: DarkGift

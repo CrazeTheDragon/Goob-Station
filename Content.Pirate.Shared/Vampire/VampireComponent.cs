@@ -36,8 +36,8 @@ public sealed partial class VampireComponent : Component
         VampireMutationsType.Hemomancer,
         VampireMutationsType.Umbrae,
         VampireMutationsType.Gargantua,
-        //VampireMutationsType.Dantalion,
-        VampireMutationsType.Bestia
+        VampireMutationsType.Bestia,
+        VampireMutationsType.Sire
     };
 
     public static readonly EntityWhitelist AcceptableFoods = new()
@@ -237,15 +237,16 @@ public sealed partial class VampireStrengthComponent : Component
 }
 
 [Serializable, NetSerializable]
-public enum VampireMutationsType : byte
-{
-    None,
-    Hemomancer,
-    Umbrae,
-    Gargantua,
-    Dantalion,
-    Bestia
-}
+    public enum VampireMutationsType : byte
+    {
+        None,
+        Hemomancer,
+        Umbrae,
+        Gargantua,
+        Dantalion,
+        Bestia,
+        Sire
+    }
 
 [Serializable, NetSerializable]
 public sealed class VampireMutationComponentState : ComponentState
