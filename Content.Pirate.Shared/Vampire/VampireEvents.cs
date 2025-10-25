@@ -19,6 +19,9 @@ public sealed partial class VampireCloakOfDarknessEvent : VampireSelfPowerEvent 
 public sealed partial class VampireGlareEvent : VampireTargetedPowerEvent { }
 public sealed partial class VampireHypnotiseEvent : VampireTargetedPowerEvent { }
 
+public sealed partial class VampireSireEvent : VampireTargetedPowerEvent { }
+public sealed partial class VampireDarkGiftEvent : VampireTargetedPowerEvent { }
+
 
 public abstract partial class VampireSelfPowerEvent : InstantActionEvent
 {

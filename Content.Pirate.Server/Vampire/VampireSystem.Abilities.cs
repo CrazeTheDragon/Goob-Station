@@ -62,6 +62,9 @@ public sealed partial class VampireSystem
         SubscribeLocalEvent<VampireComponent, VampireUnholyStrengthEvent>(OnVampireUnholyStrength);
         SubscribeLocalEvent<VampireComponent, VampireSupernaturalStrengthEvent>(OnVampireSupernaturalStrength);
         SubscribeLocalEvent<VampireComponent, VampireCloakOfDarknessEvent>(OnVampireCloakOfDarkness);
+        // Sire
+        SubscribeLocalEvent<VampireComponent, VampireSireEvent>(OnVampireSire);
+        SubscribeLocalEvent<VampireComponent, VampireDarkGiftEvent>(OnVampireDarkGift);
 
         //Hypnotise
         SubscribeLocalEvent<VampireComponent, VampireHypnotiseDoAfterEvent>(HypnotiseDoAfter);
@@ -485,6 +488,94 @@ public sealed partial class VampireSystem
             _popup.PopupEntity(Loc.GetString("vampire-cloak-enable"), vampire, vampire);
             return true;
         }
+    }
+    #endregion
+
+    #region Sire
+    private void OnVampireSire(EntityUid entity, VampireComponent component, VampireSireEvent ev)
+    {
+        if (!TryGetPowerDefinition(ev.DefinitionName, out var def))
+            return;
+
+        var vampire = new Entity<VampireComponent>(entity, component);
+
+        if (!IsAbilityUsable(vampire, def))
+            return;
+
+        var target = ev.Target;
+        if (target == entity)
+            return;
+
+        // Basic checks
+        if (!HasComp<HumanoidAppearanceComponent>(target))
+            return;
+
+        // Block real mindshielded targets only
+        if (HasComp<Content.Shared.Mindshield.Components.MindShieldComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("vampire-sire-mindshield-block"), vampire, vampire, PopupType.MediumCaution);
+            return;
+        }
+
+        if (HasComp<VampireComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("vampire-sire-already"), vampire, vampire, PopupType.SmallCaution);
+            return;
+        }
+
+        // Convert target into a vampire
+        MakeVampire(target);
+        _popup.PopupEntity(Loc.GetString("vampire-sire-success", ("target", target)), vampire, vampire);
+        _popup.PopupEntity(Loc.GetString("vampire-sire-turned"), target, target, PopupType.LargeCaution);
+
+        ev.Handled = true;
+    }
+    #endregion
+
+    #region DarkGift
+    private void OnVampireDarkGift(EntityUid entity, VampireComponent component, VampireDarkGiftEvent ev)
+    {
+        if (!TryGetPowerDefinition(ev.DefinitionName, out var def))
+            return;
+
+        var vampire = new Entity<VampireComponent>(entity, component);
+        if (!IsAbilityUsable(vampire, def))
+            return;
+
+        var target = ev.Target;
+        if (target == entity)
+            return;
+
+        if (!HasComp<VampireComponent>(target))
+            return;
+
+        // Heal common damage types
+        DamageSpecifier heal = new();
+        heal.DamageDict.Add("Brute", -35);
+        heal.DamageDict.Add("Burn", -35);
+        heal.DamageDict.Add("Toxin", -25);
+        heal.DamageDict.Add("Airloss", -25);
+        heal.DamageDict.Add("Genetic", -10);
+
+        _damageableSystem.TryChangeDamage(target, heal, true, origin: vampire);
+
+        // Attempt revival threshold similar to coffin heal
+        if (TryComp<MobStateComponent>(target, out var mobStateComponent) && _mobState.IsDead(target, mobStateComponent))
+        {
+            if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold)
+                && TryComp<DamageableComponent>(target, out var damageableComponent))
+            {
+                if (damageableComponent.TotalDamage < threshold * 0.75)
+                {
+                    _mobState.ChangeMobState(target, MobState.Critical, mobStateComponent, vampire);
+                }
+            }
+        }
+
+        _popup.PopupEntity(Loc.GetString("vampire-darkgift-used-user", ("target", target)), vampire, vampire);
+        _popup.PopupEntity(Loc.GetString("vampire-darkgift-used-target"), target, target, PopupType.LargeCaution);
+
+        ev.Handled = true;
     }
     #endregion
 

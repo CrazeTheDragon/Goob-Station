@@ -72,6 +72,18 @@
   activationCost: 30
   upkeep: 1
 
+- type: vampirePower
+  id: Sire
+  usableWhileStunned: false
+  usableWhileCuffed: false
+  activationCost: 200
+
+- type: vampirePower
+  id: DarkGift
+  usableWhileStunned: false
+  usableWhileCuffed: false
+  activationCost: 200
+
 - type: vampirePassive
   id: DeathsEmbrace
   catalogEntry: VampireDeathsEmbrace # Must match the catalog id
