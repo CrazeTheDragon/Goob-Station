@@ -35,7 +35,7 @@ public sealed class SpeakOnActionSystem : SharedSpeakOnActionSystem
         var user = args.Performer;
 
         // If we can't speak, we can't speak
-        if (!HasComp<SpeechComponent>(user) || HasComp<MutedComponent>(user))
+        if (!HasComp<SpeechComponent>(user) || HasComp<MutedComponent>(user) || ent.Comp.IsEmote) //Pirate system handles emotes
             return;
 
         // Goob. TODO: Remove Aviu from this plane of existence for whatever has occured here.

@@ -57,7 +57,5 @@ public sealed class SpeakOnActionPirateSystem : EntitySystem
         }
 
         _chat.TrySendInGameICMessage(args.User, Loc.GetString(speech), InGameICChatType.Emote, false);
-        // Prevent the base SpeakOnActionSystem from sending a normal speak message
-        args.Cancelled = true;
     }
 }
