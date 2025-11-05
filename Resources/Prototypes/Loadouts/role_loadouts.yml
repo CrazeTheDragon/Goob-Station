@@ -603,12 +603,11 @@
   - HeadofSecurityJumpsuit
   - SecurityBackpack
   - SecurityMelee # Goobstation
-  - SecurityWeapon # Pirate
+  - SeniorSecurityWeapon # Pirate
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - HeadofSecurityShoes # Goobstation edit
   - SurvivalSecurity
-  - CommandSelfDefense # Pirate
   - Trinkets
   - SecurityStar
   - Animals
@@ -626,7 +625,7 @@
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityMelee # Goobstation
-  - SecurityWeapon # Pirate
+  - SeniorSecurityWeapon # Pirate
   - SecurityNeck
   - SecurityBelt
   - WardenOuterClothing
@@ -649,7 +648,7 @@
   - SecurityBackpack
   - SecurityMelee # Goobstation
   - SecurityWeapon # Pirate
-  - SecuritySecondaryWeapon # Pirate
+  - SecurityOfficerMask # Pirate
   - SecurityOuterClothing
   - SecurityShoes
   - SecurityNeck
@@ -694,6 +693,7 @@
   - SurvivalSecurity
   - SecurityNeck
   - SecurityCadetOuterClothing # Pirate
+  - SecurityOfficerMask # Pirate
   - Trinkets
   - Animals
   - GroupSpeciesBreathToolSecurity

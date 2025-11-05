@@ -344,21 +344,27 @@
   loadouts:
   - LoadoutSecurityWeaponMk58
   - LoadoutSecurityRevolverInspector
+  - LoadoutSecurityEnergyGunPistol
+
+- type: loadoutGroup
+  id: SeniorSecurityWeapon
+  name: loadout-group-senior-security-weapon
+  loadouts:
+  - LoadoutSecurityWeaponMk58
+  - LoadoutSecurityRevolverInspector
   - LoadoutSecurityPistolN1984
+  - LoadoutSecurityEnergyGunPistol
   - LoadoutSecurityPistolUniversalNonLethal
   - LoadoutSecurityPistolUniversal
 
+# Інше
 - type: loadoutGroup
-  id: SecuritySecondaryWeapon
-  name: loadout-group-secondary-weapon
+  id: SecurityOfficerMask
+  name: loadout-group-security-officer-mask
   maxLimit: 1
   minLimit: 0
   loadouts:
-  - LoadoutSecurityEnergyGunMini
-  - LoadoutSecurityEnergyGun
-  - LoadoutSecurityDisablerSMG
-  - LoadoutSecurityEnergyGunPistol
-  - LoadoutSecurityGunLaserCarbineAutomatic
+  - BlackBalaclava
 
 
 
