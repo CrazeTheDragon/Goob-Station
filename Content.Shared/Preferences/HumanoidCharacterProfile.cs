@@ -140,13 +140,13 @@ namespace Content.Shared.Preferences
 
         // Pirate edit start - port EE contractors
         [DataField]
-        public string Nationality { get; set; } = SharedHumanoidAppearanceSystem.DefaultNationality;
+        public string Nationality { get; set; } = "Bieselite";
 
         [DataField]
-        public string Employer { get; set; } = SharedHumanoidAppearanceSystem.DefaultEmployer;
+        public string Employer { get; set; } = "NanoTrasen";
 
         [DataField]
-        public string Lifepath { get; set; } = SharedHumanoidAppearanceSystem.DefaultLifepath;
+        public string Lifepath { get; set; } = "Spacer";
         // Pirate edit end - port EE contractors
 
 
@@ -300,9 +300,9 @@ namespace Content.Shared.Preferences
             return new()
             {
                 Species = species,
-                Nationality = SharedHumanoidAppearanceSystem.DefaultNationality, // Pirate - port EE contractors
-                Employer = SharedHumanoidAppearanceSystem.DefaultEmployer, // Pirate - port EE contractors
-                Lifepath = SharedHumanoidAppearanceSystem.DefaultLifepath, // Pirate - port EE contractors
+                Nationality = "Bieselite", // Pirate - port EE contractors
+                Employer = "NanoTrasen", // Pirate - port EE contractors
+                Lifepath = "Spacer", // Pirate - port EE contractors
             };
         }
 
@@ -365,9 +365,9 @@ namespace Content.Shared.Preferences
                 Width = width, // Goobstation: port EE height/width sliders
                 Height = height, // Goobstation: port EE height/width sliders
                 Appearance = HumanoidCharacterAppearance.Random(species, sex),
-                Nationality = SharedHumanoidAppearanceSystem.DefaultNationality, // Pirate - port EE contractors
-                Employer = SharedHumanoidAppearanceSystem.DefaultEmployer, // Pirate - port EE contractors
-                Lifepath = SharedHumanoidAppearanceSystem.DefaultLifepath, // Pirate - port EE contractors
+                Nationality = "Bieselite", // Pirate - port EE contractors
+                Employer = "NanoTrasen", // Pirate - port EE contractors
+                Lifepath = "Spacer", // Pirate - port EE contractors
             };
         }
 
@@ -768,9 +768,6 @@ namespace Content.Shared.Preferences
             Name = name;
             FlavorText = flavortext;
             Age = age;
-            Nationality = nationality; // Pirate - port EE contractors
-            Employer = employer; // Pirate - port EE contractors
-            Lifepath = lifepath; // Pirate - port EE contractors
             Height = height; // Goobstation: port EE height/width sliders
             Width = width; // Goobstation: port EE height/width sliders
             Sex = sex;
