@@ -709,6 +709,38 @@ namespace Content.Shared.Preferences
                 flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
             }
 
+            // Pirate edit start - port EE contractors
+            string nationality;
+            if (Nationality.Length > maxFlavorTextLength)
+            {
+                nationality = FormattedMessage.RemoveMarkupOrThrow(Nationality)[..maxFlavorTextLength];
+            }
+            else
+            {
+                nationality = FormattedMessage.RemoveMarkupOrThrow(Nationality);
+            }
+
+            string employer;
+            if (Employer.Length > maxFlavorTextLength)
+            {
+                employer = FormattedMessage.RemoveMarkupOrThrow(Employer)[..maxFlavorTextLength];
+            }
+            else
+            {
+                employer = FormattedMessage.RemoveMarkupOrThrow(Employer);
+            }
+
+            string lifepath;
+            if (Lifepath.Length > maxFlavorTextLength)
+            {
+                lifepath = FormattedMessage.RemoveMarkupOrThrow(Lifepath)[..maxFlavorTextLength];
+            }
+            else
+            {
+                lifepath = FormattedMessage.RemoveMarkupOrThrow(Lifepath);
+            }
+            // Pirate edit end - port EE contractors
+
             // begin Goobstation: port EE height/width sliders
             var height = Height;
             if (speciesPrototype != null)
