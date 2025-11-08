@@ -16791,7 +16791,7 @@ Entries:
 - author: lambdatiger
   changes:
     - type: Add
-      message: З TGstation: каталізоване BZ-утворення закису азоту.
+      message: 'З TGstation: каталізоване BZ-утворення закису азоту.'
   id: 1952
   time: '2025-11-01T18:42:45.0000000+00:00'
 - author: XWASHERE

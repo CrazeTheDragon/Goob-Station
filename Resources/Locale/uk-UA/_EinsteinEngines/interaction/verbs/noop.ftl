@@ -20,12 +20,12 @@ interaction-KnockOn-name = Постукати
 interaction-KnockOn-description = Постукайте по цілі, щоб привернути увагу.
 interaction-KnockOn-success-self-popup = Ви стукаєте по {THE($target)}.
 interaction-KnockOn-success-target-popup = {THE($user)} стукає по вам.
-interaction-KnockOn-success-others-popup = {THE($user)} стукає у {THE($target)}
+interaction-KnockOn-success-others-popup = {THE($user)} стукає у {THE($target)}.
 
 interaction-Rattle-name = Потрясти
 interaction-Rattle-success-self-popup = Ви струшуєте {THE($target)}.
 interaction-Rattle-success-target-popup = {THE($user)} струшує вас.
-interaction-Rattle-success-others-popup = {THE($user)} трясе {THE($target)}
+interaction-Rattle-success-others-popup = {THE($user)} трясе {THE($target)}.
 interaction-WaveAt-name = Помахати
 interaction-WaveAt-description = Помахайте цілі. Якщо ви тримаєте предмет, ви помахаєте ним.
 interaction-WaveAt-success-self-popup = Ви махаєте {$hasUsed ->
