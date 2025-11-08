@@ -1,10 +1,11 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Customization.Systems;
+using Content.Shared.Roles;
 using Content.Shared.Traits;
 
 
-namespace Content.Pirate.Shared.Contractors.Prototypes;
+namespace Content.Shared._Pirate.Contractors.Prototypes;
 
 /// <summary>
 /// Prototype representing a character's Lifepath in YAML.
@@ -22,8 +23,5 @@ public sealed partial class LifepathPrototype : IPrototype
     public string DescriptionKey { get; } = string.Empty;
 
     [DataField]
-    public List<CharacterRequirement> Requirements = new();
-
-    [DataField(serverOnly: true)]
-    public TraitFunction[] Functions { get; private set; } = Array.Empty<TraitFunction>();
+    public List<JobRequirement> Requirements = new();
 }

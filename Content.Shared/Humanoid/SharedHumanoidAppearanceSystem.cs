@@ -31,7 +31,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
-using Content.Pirate.Shared.Contractors.Prototypes; // Pirate - port EE contractors
+using Content.Shared._Pirate.Contractors.Prototypes; // Pirate - port EE contractors
 using Content.Shared.CCVar;
 using Content.Shared.Decals;
 using Content.Shared.Examine;

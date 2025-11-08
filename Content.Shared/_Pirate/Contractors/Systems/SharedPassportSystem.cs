@@ -1,5 +1,5 @@
-using Content.Pirate.Shared.Contractors.Components;
-using Content.Pirate.Shared.Contractors.Prototypes;
+using Content.Shared._Pirate.Contractors.Components;
+using Content.Shared._Pirate.Contractors.Prototypes;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -16,7 +16,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 
-namespace Content.Pirate.Shared.Contractors.Systems;
+namespace Content.Shared._Pirate.Contractors.Systems;
 
 public class SharedPassportSystem : EntitySystem
 {

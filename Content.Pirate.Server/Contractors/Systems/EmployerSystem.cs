@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Server.Players.PlayTimeTracking;
-using Content.Pirate.Shared.Contractors.Prototypes;
+using Content.Shared._Pirate.Contractors.Prototypes;
 using Content.Shared.Customization.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;

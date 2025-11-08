@@ -1,5 +1,5 @@
-using Content.Pirate.Shared.Contractors.Components;
-using Content.Pirate.Shared.Contractors.Systems;
+using Content.Shared._Pirate.Contractors.Components;
+using Content.Shared._Pirate.Contractors.Systems;
 using Content.Shared.Preferences;
 using Robust.Client.GameObjects;
 using Robust.Client.Timing;

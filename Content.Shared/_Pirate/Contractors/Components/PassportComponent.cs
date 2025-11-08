@@ -2,7 +2,7 @@ using Content.Shared.Preferences;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Pirate.Shared.Contractors.Components;
+namespace Content.Shared._Pirate.Contractors.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PassportComponent : Component

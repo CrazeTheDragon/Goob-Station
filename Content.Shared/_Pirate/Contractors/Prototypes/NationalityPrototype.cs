@@ -1,11 +1,11 @@
-using Content.Pirate.Shared.Contractors.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Customization.Systems;
+using Content.Shared.Roles;
 using Content.Shared.Traits;
 
 
-namespace Content.Pirate.Shared.Contractors.Prototypes;
+namespace Content.Shared._Pirate.Contractors.Prototypes;
 
 /// <summary>
 /// Prototype representing a character's nationality in YAML.
@@ -29,11 +29,8 @@ public sealed partial class NationalityPrototype : IPrototype
     public HashSet<ProtoId<NationalityPrototype>> Hostile { get; } = new();
 
     [DataField]
-    public List<CharacterRequirement> Requirements = new();
-
-    [DataField(serverOnly: true)]
-    public TraitFunction[] Functions { get; private set; } = Array.Empty<TraitFunction>();
-
+    public List<JobRequirement> Requirements = new();
+    
     [DataField]
     public ProtoId<EntityPrototype> PassportPrototype { get; } = new();
 }
