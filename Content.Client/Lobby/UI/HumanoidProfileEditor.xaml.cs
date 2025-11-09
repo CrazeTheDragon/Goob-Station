@@ -1020,6 +1020,27 @@ namespace Content.Client.Lobby.UI
                 _suppressSelectors = false;
             }
         }
+
+        private void UpdateLifepathDescription()
+        {
+            if (Profile == null)
+            {
+                LifepathDescriptionLabel.SetMessage("");
+                return;
+            }
+
+            var lifepathId = Profile.Lifepath;
+
+            if (string.IsNullOrEmpty(lifepathId))
+            {
+                LifepathDescriptionLabel.SetMessage("");
+                return;
+            }
+
+            var descriptionKey = $"lifepath_description_{lifepathId}";
+
+            LifepathDescriptionLabel.SetMessage(Loc.GetString(descriptionKey));
+        }
         // Pirate edit end - port EE contractors
 
         private bool CheckRequirementsValid(IReadOnlyCollection<JobRequirement>? requirements, HumanoidCharacterProfile profile)
@@ -1207,6 +1228,7 @@ namespace Content.Client.Lobby.UI
             RefreshNationalities(); // Pirate - port EE contractors
             RefreshEmployers(); // Pirate - port EE contractors
             RefreshLifepaths(); // Pirate - port EE contractors
+            UpdateLifepathDescription(); // Pirate - port EE contractors
             RefreshTraits();
             RefreshFlavorText();
             ReloadPreview();
@@ -1706,6 +1728,7 @@ namespace Content.Client.Lobby.UI
             RefreshNationalities();
             RefreshEmployers();
             RefreshLifepaths();
+            UpdateLifepathDescription();
             ReloadPreview();
             // begin Goobstation: port EE height/width sliders
             // Changing species provides inaccurate sliders without these
@@ -1741,6 +1764,7 @@ namespace Content.Client.Lobby.UI
             IsDirty = true;
             ReloadProfilePreview();
             ReloadClothes(); // Lifepaths may have specific gear, reload the clothes
+            UpdateLifepathDescription();
         }
         // Pirate edit end - port EE contractors
 

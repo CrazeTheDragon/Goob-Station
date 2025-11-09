@@ -1,4 +1,4 @@
-humanoid-profile-editor-nationality-label = Національність
+humanoid-profile-editor-nationality-label = Національність:
 
 character-nationality-requirement = Ви повинні{$inverted ->
     [true]{" "}{" "}не
