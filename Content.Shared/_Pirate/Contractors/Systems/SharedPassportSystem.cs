@@ -11,6 +11,7 @@ using Content.Shared.Item;
 using Content.Shared.Preferences;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Roles;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -68,6 +69,15 @@ public class SharedPassportSystem : EntitySystem
     {
         if (Deleted(ev.Mob) || !Exists(ev.Mob))
             return;
+
+        if (ev.JobId != null && _prototypeManager.TryIndex<JobPrototype>(
+                ev.JobId, out var jobPrototype))
+        {
+            if (!jobPrototype.CanHavePassport)
+            {
+                return;
+            }
+        }
 
         if (!_prototypeManager.TryIndex(
             ev.Profile.Nationality,
