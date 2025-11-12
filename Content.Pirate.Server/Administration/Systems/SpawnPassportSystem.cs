@@ -1,4 +1,4 @@
-﻿using Content.Shared.SpawnPassport;
+﻿using Content.Pirate.Shared.SpawnPassport;
 
 namespace Content.Server.Administration.Systems;
 

@@ -1,4 +1,4 @@
-namespace Content.Shared.SpawnPassport;
+namespace Content.Pirate.Shared.SpawnPassport;
 
 public sealed class SpawnPassportEvent : EntityEventArgs
 {
