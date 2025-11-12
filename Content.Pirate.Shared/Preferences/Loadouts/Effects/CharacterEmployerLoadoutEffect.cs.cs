@@ -3,6 +3,9 @@ using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Localization;
+using Content.Shared._Pirate.Contractors.Prototypes;
 
 namespace Content.Shared.Preferences.Loadouts.Effects;
 
@@ -21,9 +24,17 @@ public sealed partial class CharacterEmployerRequirement : LoadoutEffect
     {
         reason = null;
 
-        if (profile.Employer == string.Empty || !Employers.Contains(profile.Employer))
+        if (session == null || profile.Employer == string.Empty || !Employers.Contains(profile.Employer))
         {
-            reason = FormattedMessage.FromMarkup($"Вимагається один із роботодавців: {string.Join(", ", Employers)}.");
+            var protoManager = collection.Resolve<IPrototypeManager>();
+
+            var employerNames = Employers.Select(id =>
+                protoManager.TryIndex<EmployerPrototype>(id, out var proto)
+                    ? Loc.GetString(proto.NameKey) 
+                    : id)
+                .Select(name => $"[color=#ff0000]{name}[/color]");
+
+            reason = FormattedMessage.FromMarkup($"Вимагається один із роботодавців: {string.Join(", ", employerNames)}.");
             return false;
         }
 
