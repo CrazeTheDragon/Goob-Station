@@ -149,6 +149,7 @@
       Male: MaleVulpkanin
       Female: FemaleVulpkanin
       Unsexed: MaleVulpkanin
+  - type: Wagging # Pirate - port EE vulp wagging
   - type: NoShoesSilentFootsteps # PIRATE
   - type: Tag
     tags:
