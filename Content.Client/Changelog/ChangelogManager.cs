@@ -119,9 +119,6 @@ namespace Content.Client.Changelog
                     if (file.Directory != directory || file.Extension != "yml")
                         continue;
 
-                    if (file.FilenameWithoutExtension == "pirate")
-                        continue;
-
                     var yamlData = _resource.ContentFileReadYaml(file);
 
                     if (yamlData.Documents.Count == 0)

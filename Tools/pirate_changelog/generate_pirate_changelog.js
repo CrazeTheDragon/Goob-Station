@@ -33,7 +33,15 @@ function main() {
     data.Entries = data.Entries || [];
     const newId = data.Entries.length > 0 ? Math.max(...data.Entries.map(e => e.id)) + 1 : 1;
     const time = new Date().toISOString().replace(/\.\d{3}Z$/, ".0000000+00:00");
-    const entry = { id: newId, author, time, changes };
+    const entry = { 
+        id: newId, 
+        author: author, 
+        time: time, 
+        changes: changes.map(c => ({
+            message: c.message,
+            type: c.type.charAt(0).toUpperCase() + c.type.slice(1).toLowerCase()
+        }))
+    };
 
     data.Entries.push(entry);
     data.Entries.sort((a, b) => a.id - b.id);
@@ -51,7 +59,7 @@ function getChanges(body) {
     const entries = [];
 
     matches.forEach(([_, typeRaw, message]) => {
-        let type = typeRaw.charAt(0).toUpperCase() + typeRaw.slice(1).toLowerCase();
+        let type = typeRaw.trim();
         entries.push({ type, message });
     });
 

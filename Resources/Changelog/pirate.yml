@@ -1,7 +1,56 @@
+Name: pirate
 Entries:
-  - id: 1
-    author: CrazyDragon
-    time: 2025-11-01T21:14:41.0000000+00:00
-    changes:
-      - type: Fix
-        message: fix
+- author: CrazyDragon
+  changes:
+    - message: init
+      type: add
+  id: 1
+  time: '2025-11-01T21:14:41.0000000+00:00'
+- author: inhat-d
+  changes:
+    - message: альтернативні назви
+      type: Add
+  id: 2
+  time: '2025-11-09T21:14:41.0000000+00:00'
+- author: CrazyDragon
+  changes:
+    - message: виправленя списка змін
+      type: Fix
+  id: 3
+  time: '2025-11-11T21:14:41.0000000+00:00'
+- author: Vareniko
+  changes:
+    - message: Виправлено відображення діагональних вікон для всіх типів конструкцій
+      type: Fix
+  id: 4
+  time: '2025-11-11T21:14:41.0000000+00:00'
+- author: Vareniko
+  changes:
+    - message: Додано можливість вибрати національність, роботодавця і життєвий шлях в меню кастомізації персонажа, а також Лодаут-Еффекти і вимоги зв'язані з ними.
+      type: Add
+  id: 5
+  time: '2025-11-11T21:14:41.0000000+00:00'
+- author: Vareniko
+  changes:
+    - message: Вибираючи ШІ або борга ви більше не будете отримати паспорт
+      type: Fix
+  id: 6
+  time: '2025-11-12T21:14:41.0000000+00:00'
+- author: Vareniko
+  changes:
+    - message: Покращено макет області опису Lifepath
+      type: Fix
+  id: 7
+  time: '2025-11-14T05:14:41.0000000+00:00'
+- author: Vareniko
+  changes:
+    - message: Покращення деяких хвостів у раси Вульпканін
+      type: Fix
+  id: 8
+  time: '2025-11-15T05:14:41.0000000+00:00'
+- author: Vareniko
+  changes:
+    - message: Оновлено мапу льдовик
+      type: Fix
+  id: 9
+  time: '2025-11-15T05:14:41.0000000+00:00'
