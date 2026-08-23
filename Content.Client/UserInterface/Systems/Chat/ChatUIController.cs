@@ -17,12 +17,14 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Client.UserInterface.Systems.Gameplay;
+using Content.Pirate.Shared.Psionics; // Pirate
 using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared.Decals;
+using Content.Shared.Examine;
 using Content.Shared.Input;
 using Content.Shared.Radio;
 using Content.Shared.Roles.RoleCodeword;
@@ -67,7 +69,6 @@ public sealed partial class ChatUIController : UIController
     [UISystemDependency] private readonly CollectiveMindSystem? _collectiveMind = default!; // Goobstation - Starlight collective mind port
     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
     [UISystemDependency] private readonly ChatSystem? _chatSys = default;
-    [UISystemDependency] private readonly PsionicChatUpdateSystem? _psionic = default!; //Nyano - Summary: makes the psionic chat available.
     [UISystemDependency] private readonly TransformSystem? _transform = default;
     [UISystemDependency] private readonly MindSystem? _mindSystem = default!;
     [UISystemDependency] private readonly RoleCodewordSystem? _roleCodewordSystem = default!;
@@ -454,16 +455,32 @@ public sealed partial class ChatUIController : UIController
 
     private void AddSpeechBubble(ChatMessage msg, SpeechBubble.SpeechType speechType)
     {
-        var ent = EntityManager.GetEntity(msg.SenderEntity);
-
-        if (!EntityManager.EntityExists(ent))
-        {
-            _sawmill.Debug("Got local chat message with invalid sender entity: {0}", msg.SenderEntity);
-            return;
-        }
+        if (!TryResolveChatSenderEntity(msg, out var ent)) // Pirate: multiz
+            return; // Pirate: multiz
 
         EnqueueSpeechBubble(ent, msg, speechType);
     }
+
+    #region Pirate: multiz
+    private bool TryResolveChatSenderEntity(ChatMessage msg, out EntityUid ent)
+    {
+        ent = EntityUid.Invalid;
+
+        if (msg.SenderEntity == NetEntity.Invalid)
+            return false;
+
+        if (!EntityManager.TryGetEntity(msg.SenderEntity, out EntityUid? resolved) ||
+            resolved == null ||
+            !EntityManager.EntityExists(resolved.Value))
+        {
+            _sawmill.Debug("Got chat message with invalid sender entity: {0}", msg.SenderEntity);
+            return false;
+        }
+
+        ent = resolved.Value;
+        return true;
+    }
+    #endregion
 
     private void CreateSpeechBubble(EntityUid entity, SpeechBubbleData speechData)
     {
@@ -586,13 +603,18 @@ public sealed partial class ChatUIController : UIController
             FilterableChannels |= ChatChannel.Telepathic; //Nyano - Summary: makes admins able to see psionic chat.
         }
 
-        // Nyano - Summary: - Begin modified code block to add telepathic as a channel for a psionic user.
-        if (_psionic != null && _psionic.IsPsionic)
+        // Pirate: ask Pirate-side systems whether this player can use telepathic chat.
+        if (_player.LocalEntity is { } localEntity)
         {
-            FilterableChannels |= ChatChannel.Telepathic;
-            CanSendChannels |= ChatSelectChannel.Telepathic;
+            var ev = new GetTelepathicChatPermissionsEvent();
+            _ent.EventBus.RaiseLocalEvent(localEntity, ref ev);
+            if (ev.CanUse)
+            {
+                FilterableChannels |= ChatChannel.Telepathic;
+                CanSendChannels |= ChatSelectChannel.Telepathic;
+            }
         }
-        // /Nyano - End modified code block
+
         // Goobstation - Starlight collective mind port
         if (_collectiveMind != null && _collectiveMind.IsCollectiveMind)
         {
@@ -675,6 +697,7 @@ public sealed partial class ChatUIController : UIController
             : MapCoordinates.Nullspace;
 
         var occluded = player != null && _examine.IsOccluded(player.Value);
+        var maxRaycastRangeSquared = ExamineSystemShared.MaxRaycastRange * ExamineSystemShared.MaxRaycastRange;
 
         foreach (var (ent, bubs) in _activeSpeechBubbles)
         {
@@ -692,10 +715,14 @@ public sealed partial class ChatUIController : UIController
 
             var otherPos = _transform?.GetMapCoordinates(ent) ?? MapCoordinates.Nullspace;
 
-            if (occluded && !_examine.InRangeUnOccluded(
+            // Pirate: avoid an unlimited occlusion ray each frame for distant speech bubbles.
+            if (occluded &&
+                (otherPos.MapId != playerPos.MapId ||
+                 Vector2.DistanceSquared(playerPos.Position, otherPos.Position) > maxRaycastRangeSquared ||
+                 !_examine.InRangeUnOccluded(
                     playerPos,
                     otherPos, 0f,
-                    (ent, player), predicate))
+                    (ent, player), predicate)))
             {
                 SetBubbles(bubs, false);
                 continue;
@@ -882,9 +909,10 @@ public sealed partial class ChatUIController : UIController
     public void ProcessChatMessage(ChatMessage msg, bool speechBubble = true)
     {
         // color the name unless it's something like "the old man"
-        if ((msg.Channel == ChatChannel.Local || msg.Channel == ChatChannel.Whisper) && _chatNameColorsEnabled)
+        if ((msg.Channel == ChatChannel.Local || msg.Channel == ChatChannel.Whisper) && _chatNameColorsEnabled && // Pirate: multiz
+            TryResolveChatSenderEntity(msg, out var grammarUid)) // Pirate: multiz
         {
-            var grammar = _ent.GetComponentOrNull<GrammarComponent>(_ent.GetEntity(msg.SenderEntity));
+            var grammar = _ent.GetComponentOrNull<GrammarComponent>(grammarUid); // Pirate: multiz
             if (grammar != null && grammar.ProperNoun == true)
                 msg.WrappedMessage = SharedChatSystem.InjectTagInsideTag(msg, "Name", "color", GetNameColor(SharedChatSystem.GetStringInsideTag(msg, "Name")));
         }

@@ -5,6 +5,9 @@
   name: entropic colossus
   description: A colossal monstrosity of malign plating and dendritic infestation.
   components:
+  - type: MovementIgnoreGravity # Pirate: multiz - fly in zero gravity
+  - type: CEZLevelPhysicsExempt # Pirate: multiz - prevent falling through openings
+  - type: CEZLevelContextualMover # Pirate: multiz - openings-only z-movement
   - type: FTLSmashImmune
   - type: CosmicCultExamine
     cultistText: cosmic-examine-text-cultentity
@@ -253,6 +256,8 @@
   - type: GuideHelp
     guides:
     - CosmicColossus
+  - type: WeakToHoly # Holy Dmg
+    alwaysTakeHoly: true
 
 - type: entity
   parent: [ MobCosmicColossusBase ]
@@ -393,4 +398,4 @@
     - !type:HealthChange
       damage:
         types:
-          Cold: 12.5
+          Cold: 15 # Goobstation - 7 hits to kill instead of 8

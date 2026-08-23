@@ -118,9 +118,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
                     _damageableSystem.TryChangeDamage(uid, amt,
                         ignoreResistances: false, interruptsDoAfters: false,
                         splitDamage: SplitDamageBehavior.SplitEnsureAll, targetPart: TargetBodyPart.All);
-
                     // Goobstation end
-
                     // Apply dizziness as a symptom of bloodloss.
                     // The effect is applied in a way that it will never be cleared without being healthy.
                     // Multiplying by 2 is arbitrary but works for this case, it just prevents the time from running out
@@ -160,9 +158,11 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
                     totalPartBleeds += bleeds.BleedingAmount; // Goobstation
                 }
 
-                if (TryComp<WoundableComponent>(bodyPart, out var woundable)) // Goobstation
+                if (TryComp<WoundableComponent>(bodyPart, out var woundable)
+                    && woundable.Bleeds != totalPartBleeds) // Goobstation
                 {
                     woundable.Bleeds = totalPartBleeds; // Goobstation
+                    Dirty(bodyPart, woundable); // Goobstation
                 }
             }
 
@@ -501,7 +501,8 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
     {
         if (!Resolve(ent, ref ent.Comp, logMissing: false)
             || !SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution)
-            || amount == 0)
+            || amount == 0
+            || ent.Comp.BloodReferenceSolution.Volume == 0) // Pirate: blood-regen - prevent division by zero
             return false;
 
         referenceFactor = Math.Clamp(referenceFactor, 0f, ent.Comp.MaxVolumeModifier);

@@ -43,3 +43,9 @@ uplink-syndicate-mothroach-description = Найновіший і найкращ�
 
 uplink-autosurgeon-cyberdeck-name = Автохірург кібердеки
 uplink-autosurgeon-cyberdeck-desc = Замінює очі користувача кібердекою, що дає змогу подумки зламувати окремі електронні пристрої. Має обмежений запас зарядів.
+
+uplink-spaceblade-syndicate-name = Контрабандне космолезо
+uplink-spaceblade-syndicate-desc = Іграшкова дзиґа зі справжнього металу. Майже напевно безпечна.
+
+uplink-defibrillator-belt-combat-name = Бойовий поясний дефібрилятор
+uplink-defibrillator-belt-combat-desc = Міцний червоний поясний дефібрилятор для польових медиків. Самозаряджається, у комплекті з акумулятором і бойовими електродами, які можуть добряче вдарити струмом.

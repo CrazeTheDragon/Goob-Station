@@ -87,7 +87,6 @@
   ghostName: mushroom_Fox
   ghostDescription: Ви бачите щось миле мале і голодне, воно вимагає у вас їсти! Сквік Сквік! * звуки жування огурчика *
 
-
 - type: customGhost
   id: Omak-ghost
   ckey: Omak
@@ -185,6 +184,24 @@
   ghostDescription: UwU -><-
 
 - type: customGhost
+  id: Oskarrr-ghost
+  ckey: Oskarrr
+  sprite:
+    - _Pirate/Ghosts/Oskarrr.rsi
+  alpha: 1
+  ghostName: Оскар
+  ghostDescription: О БОЖЕ ЦЕ Ж ОСКАРРР!!!!
+
+- type: customGhost
+  id: localhost@Oskarrr-ghost
+  ckey: localhost@Oskarrr
+  sprite:
+    - _Pirate/Ghosts/Oskarrr.rsi
+  alpha: 1
+  ghostName: Оскар
+  ghostDescription: О БОЖЕ ЦЕ Ж ОСКАРРР!!!!
+
+- type: customGhost
   id: lemax-ghost
   ckey: lemax
   sprite:
@@ -218,7 +235,7 @@
     - _Pirate/Ghosts/VCS.rsi
   alpha: 1
   ghostName: VCS
-  ghostDescription: Той самий НВех який все поламав.
+  ghostDescription: Завтра.
 
 - type: customGhost
   id: luciusGG-ghost

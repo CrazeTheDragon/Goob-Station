@@ -69,7 +69,9 @@ public sealed partial class ItemSlotsSystem
 
         foreach (var slot in slots)
         {
-            TryInsertOrDoAfter(uid, (user, hands), toInsert, slot, doAfter);
+            // Pirate: Report a successful insertion so callers do not roll it back.
+            if (TryInsertOrDoAfter(uid, (user, hands), toInsert, slot, doAfter))
+                return true;
         }
 
         return false;
@@ -87,6 +89,16 @@ public sealed partial class ItemSlotsSystem
         // Drop the held item onto the floor. Return if the user cannot drop.
         if (_handsSystem.IsHolding(user, toInsert) && !_handsSystem.TryDrop(user, toInsert)) // Goobstation - don't try to drop if not holding
             return false;
+
+        //Pirate
+        if (TryComp<MetaDataComponent>(toInsert, out var meta) &&
+            TryComp<TransformComponent>(toInsert, out var xform) &&
+            (meta.Flags & MetaDataFlags.InContainer) != 0 &&
+            _containers.TryGetContainingContainer((toInsert, xform, meta), out var oldContainer))
+        {
+            _containers.Remove((toInsert, xform, meta), oldContainer, reparent: false);
+        }
+        //Pirate end
 
         if (slot.Item != null)
             _handsSystem.TryPickupAnyHand(user, slot.Item.Value, handsComp: user.Comp);

@@ -395,6 +395,7 @@
     - LVCable
     - MVCable
     - HVCable
+    - CEMultizCableHub # Pirate: multiz
     - CableTerminal
     - Deconstruct
   - type: LimitedCharges
@@ -422,6 +423,8 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RcdUiKey.Key
+  - type: StealTarget # Pirate
+    stealGroup: RCD
   - type: Tag
     tags:
     - DroneUsable # Goobstation
@@ -439,6 +442,7 @@
     - PipeStraight
     - PipeBend
     - PipeTJunction
+    - CEMultizAtmosPipeAdapter # Pirate: multiz
     - OutletInjector
     - ManualValve
     - VolumetricPump
